@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Submission</title>
+  </head>
+  <body>
+    <h2>Submit Form</h2>
+    <form id="myForm">
+      <label>Username:</label><br />
+      <input type="text" name="username" required /><br /><br />
+
+      <label>Email:</label><br />
+      <input type="email" name="email" required /><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="formHandler.js"></script>
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData.entries());
+          console.log("Form Data:", data);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    Error Handling
+  </head>
+  <p id="x"></p>
+
+  <script>
+    // function adddlert(message) {
+    //   alert(message);
+    // }
+    try {
+      adddlert("Welcome guest!");
+    } catch (err) {
+      document.getElementById("x").innerHTML = err.message;
+    }
+  </script>
+</html>

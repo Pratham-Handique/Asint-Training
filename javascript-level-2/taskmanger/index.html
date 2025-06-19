@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task-form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task-item.completed {
+            background: #e8f5e9;
+            text-decoration: line-through;
+        }
+        .task-actions button {
+            margin-left: 5px;
+        }
+        input, button {
+            padding: 8px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Async Task Manager</h1>
+    
+    <div class="task-form">
+        <input type="text" id="taskInput" placeholder="Enter task description">
+        <button id="addTaskBtn">Add Task</button>
+    </div>
+    
+    <ul class="task-list" id="taskList"></ul>
+    
+    <script src="app.js"></script>
+</body>
+</html>

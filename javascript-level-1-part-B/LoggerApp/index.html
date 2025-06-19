@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Logger Application with Closures</title>
+ </head>
+<body>
+
+  <h2>Logger Application (Closure-based)</h2>
+
+  <input type="text" id="logInput" placeholder="Enter your log message" />
+  <button onclick="loggerApp.log('INFO')">Log Info</button>
+  <button onclick="loggerApp.log('WARN')">Log Warning</button>
+  <button onclick="loggerApp.log('ERROR')">Log Error</button>
+  <button onclick="loggerApp.clear()">Clear Logs</button>
+
+  <div class="log-output" id="logOutput"></div>
+
+  <script>
+    // Logger using closure
+    const loggerApp = (function () {
+      let logs = []; // Private variable
+
+      function addLog(message, type) {
+        const timestamp = new Date().toLocaleTimeString();
+        const entry = { message, type, timestamp };
+        logs.push(entry);
+        displayLogs();
+      }
+
+      function displayLogs() {
+        const output = document.getElementById('logOutput');
+        output.innerHTML = '';
+        logs.forEach(log => {
+          const div = document.createElement('div');
+          div.className = `log-entry ${log.type.toLowerCase()}`;
+          div.textContent = `[${log.timestamp}] [${log.type}] ${log.message}`;
+          output.appendChild(div);
+        });
+      }
+
+      function clearLogs() {
+        logs = [];
+        document.getElementById('logOutput').innerHTML = '';
+      }
+
+      return {
+        log: function (type) {
+          const msg = document.getElementById('logInput').value;
+          if (msg.trim() !== '') {
+            addLog(msg, type);
+            document.getElementById('logInput').value = '';
+          }
+        },
+        clear: clearLogs
+      };
+    })();
+  </script>
+
+</body>
+</html>

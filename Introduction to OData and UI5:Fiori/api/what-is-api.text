@@ -1,0 +1,12 @@
+what is api in the context of fiori and odata
+bullet points:
+- An API (Application Programming Interface) is a set of protocols and tools that allows different software applications to communicate with each other.
+- In the context of Fiori and OData, an API serves as a bridge between the Fiori application and backend services.
+- It enables the Fiori application to retrieve, manipulate, and display data from backend systems.
+- APIs in Fiori often utilize OData services to perform CRUD (Create, Read, Update, Delete) operations on data.
+- OData (Open Data Protocol) is a standard protocol used for building and consuming RESTful APIs, which is widely adopted in SAP environments.
+- Fiori applications leverage OData APIs to ensure a consistent and efficient user experience across different devices and platforms.
+- APIs in Fiori can be categorized into different types, such as public APIs for external developers and internal APIs for SAP applications.        
+- The use of APIs in Fiori promotes modularity and reusability, allowing developers to create applications that can easily integrate with various backend systems.
+- APIs also facilitate the implementation of security measures, such as authentication and authorization, to protect sensitive data.
+- Overall, APIs are essential for enabling the dynamic and interactive features of Fiori applications, enhancing user engagement and productivity.  

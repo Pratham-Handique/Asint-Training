@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch API GET Example</title>
+</head>
+<body>
+  <h1>Fetch GET Request Example</h1>
+  <button onclick="fetchPost()">Fetch Post</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    function fetchPost() {
+      fetch('https://jsonplaceholder.typicode.com/posts/1') // API endpoint
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Convert response to JSON
+        })
+        .then(data => {
+          console.log('GET response:', data); // Log to console
+          document.getElementById("output").textContent = JSON.stringify(data, null, 2); // Display on page
+        })
+        .catch(error => {
+          console.error('Fetch error:', error); // Handle error
+          document.getElementById("output").textContent = 'Error: ' + error.message;
+        });
+    }
+  </script>
+</body>
+</html>

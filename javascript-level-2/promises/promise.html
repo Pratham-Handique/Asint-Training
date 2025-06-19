@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>JavaScript Promise Object</h1>
+    <h2>The then() Method</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+
+      let myPromise = new Promise(function (myResolve, myReject) {
+        let x = 0;
+
+        if (x == 0) {
+          myResolve("OK");
+        } else {
+          myReject("Error");
+        }
+      });
+
+      // myPromise.then(
+      //   function(value) {myDisplayer(value);},
+      //   function(error) {myDisplayer(error);}
+      // );
+
+      // myPromise.then((message)=>{
+      //     console.log('this is the message', message);
+      // }).catch((error)=>{
+      //     console.log('this is the error', error);
+      // });
+
+
+      myPromise.then(
+        (value) => {
+          console.log("this is the message", value);
+        },
+        (error) => {
+          console.log("this is the error", error);
+        }
+      );
+    </script>
+  </body>
+</html>
+
+// promise format 
+// let myPromise = new Promise(function(resolve, reject) {
+//     // do something
+//     if (/* success */) {
+//         resolve("Success message");
+//     } else {
+//         reject("Error message");
+//     }        
+// });
+// myPromise.then(
+//     function(value) { /* handle success */ },
+//     function(error) { /* handle error */ }
+// );
+
+// promise.then(successHandler, errorHandler);
+//successHandler runs if the promise is resolved.
+//errorHandler runs if the promise is rejected.
+
