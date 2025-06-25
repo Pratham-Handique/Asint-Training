@@ -1,0 +1,145 @@
+<mvc:View
+  controllerName="ui5.walkthrough.controller.Overview"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  displayBlock="true">
+  
+  <Page 
+    id="overviewPage" 
+    title="{i18n>overviewTitle}"
+    showHeader="true"
+    enableScrolling="true">
+    
+    <subHeader>
+      <Toolbar>
+        <Title 
+          id="ordersTitle"
+          text="{i18n>orders}" 
+          level="H2" />
+        <ToolbarSpacer />
+        
+        <SearchField
+          id="searchField"
+          width="50%"
+          placeholder="{i18n>searchPlaceholder}"
+          liveChange="onSearch"
+          ariaLabelledBy="ordersTitle"
+          tooltip="{i18n>searchPlaceholder}" />
+          
+        <Button 
+          id="addButton"
+          text="{i18n>add}" 
+          press="onAdd" 
+          icon="sap-icon://add"
+          type="Transparent"
+          tooltip="{i18n>add}" />
+          
+        <Button 
+          id="deleteButton"
+          text="{i18n>delete}" 
+          press="onDelete" 
+          icon="sap-icon://delete"
+          type="Reject"
+          tooltip="{i18n>delete}"
+          enabled="{= ${/Orders}.length > 0 }" />
+      </Toolbar>
+    </subHeader>
+    
+    <content>
+      <Table
+        id="ordersTable"
+        inset="false"
+        sticky="ColumnHeaders,HeaderToolbar"
+        growing="true"
+        growingScrollToLoad="true"
+        mode="MultiSelect"
+        items="{
+          path: '/Orders',
+          parameters: {
+            operationMode: 'Server',
+            countMode: 'Inline'
+          }
+        }"
+        itemPress="onRowPress"
+        ariaLabelledBy="ordersTitle">
+        
+        <headerToolbar>
+          <Toolbar>
+            <Title 
+              text="{= ${/Orders}.length + ' ' + ${i18n>orders} }" 
+              level="H3" />
+            <ToolbarSpacer />
+            <Button 
+              icon="sap-icon://refresh"
+              press=".onRefresh"
+              tooltip="Refresh data" />
+          </Toolbar>
+        </headerToolbar>
+        
+        <columns>
+          <Column 
+            id="orderIdColumn"
+            width="12rem">
+            <Text 
+              text="{i18n>orderID}" 
+              wrapping="true" />
+          </Column>
+          
+          <Column 
+            id="customerIdColumn"
+            width="12rem"
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text 
+              text="{i18n>customerID}" 
+              wrapping="true" />
+          </Column>
+          
+          <Column 
+            id="orderDateColumn"
+            width="12rem"
+            minScreenWidth="Tablet"
+            demandPopin="true"
+            hAlign="End">
+            <Text 
+              text="{i18n>orderDate}" 
+              wrapping="true" />
+          </Column>
+        </columns>
+        
+        <items>
+          <ColumnListItem 
+            type="Navigation"
+            vAlign="Middle">
+            <cells>
+              <Text 
+                text="{OrderID}" 
+                wrapping="false" />
+              <Text 
+                text="{CustomerID}" 
+                wrapping="false" />
+              <Text 
+                text="{
+                  path: 'OrderDate',
+                  type: 'sap.ui.model.type.Date',
+                  formatOptions: {
+                    style: 'medium',
+                    UTC: true
+                  },
+                  constraints: {
+                    displayFormat: 'Date'
+                  }
+                }"
+                wrapping="false" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer />
+        <Text 
+          text="{= ${/Orders}.length + ' ' + ${i18n>orders

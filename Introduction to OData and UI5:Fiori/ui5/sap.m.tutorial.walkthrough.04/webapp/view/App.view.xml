@@ -4,3 +4,8 @@
 >
 	<Text text="Hello World" />
 </mvc:View>
+// we are using the <mvc:View> tag to define the view
+// because we are using the MVC pattern
+// and the mvc pattern says that the view is responsible for the UI
+// the view is responsible for the UI and the controller is responsible for the logic
+// the view is responsible for the UI and the model is responsible for the data
