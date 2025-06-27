@@ -1,0 +1,35 @@
+<!-- <mvc:View
+  controllerName="ui5task.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page title="{i18n>appTitle}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <Input id="titleInput" value="{title}" />
+      <Input id="descInput" value="{description}" />
+      <Button text="{i18n>updateButton}" press="onUpdate" />
+      <Button text="{i18n>deleteButton}" press="onDelete" />
+    </content>
+  </Page>
+</mvc:View> -->
+
+<mvc:View
+  controllerName="ui5task.controller.Detail"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:custom="ui5task.control">
+
+  <Page title="{i18n>appTitle}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <Input id="titleInput" value="{title}" />
+      <Input id="descInput" value="{description}" />
+      <Button text="{i18n>updateButton}" press="onUpdate" />
+      <Button text="{i18n>deleteButton}" press="onDelete" />
+
+      <!-- Custom ProductRating control with model binding -->
+      <custom:ProductRating
+        value="{rating}"
+        change="onRatingChange"
+        class="sapUiTinyMarginTop" />
+    </content>
+  </Page>
+</mvc:View>

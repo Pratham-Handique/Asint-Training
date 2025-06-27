@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>UI5 Task CRUD</title>
+
+    <!-- SAPUI5 CDN Bootstrap using latest version -->
+    <script
+      id="sap-ui-bootstrap"
+      src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-async="true"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-preload="off"
+      data-sap-ui-resourceroots='{
+          "ui5task": "./"
+        }'
+    ></script>
+
+    <!-- Initialize Component -->
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        new sap.ui.core.ComponentContainer({
+          name: "ui5task",
+          settings: {
+            id: "ui5task",
+          },
+          async: true,
+          height: "100%",
+        }).placeAt("content");
+      });
+    </script>
+  </head>
+
+  <body class="sapUiBody" id="content"></body>
+</html>

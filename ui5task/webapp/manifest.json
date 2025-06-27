@@ -1,0 +1,69 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "ui5task",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "dataSources": {
+      "tasksAPI": {
+        "uri": "json/tasks.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "ui5task.view.Master",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "tasksAPI"
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ui5task.i18n.i18n",
+          "supportedLocales": [""],
+          "fallbackLocale": ""
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "ui5task.view",
+        "controlId": "appContainer",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "master",
+          "target": "master"
+        },
+        {
+          "pattern": "detail/{taskId}",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "master": {
+          "viewName": "Master",
+          "viewLevel": 1
+        },
+        "detail": {
+          "viewName": "Detail",
+          "viewLevel": 2
+        }
+      }
+    }
+  }
+}

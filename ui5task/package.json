@@ -1,0 +1,11 @@
+{
+  "name": "ui5task",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ui5 serve --open"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0",
+    "ui5-middleware-simpleproxy": "^3.0.0"
+  }
+}
